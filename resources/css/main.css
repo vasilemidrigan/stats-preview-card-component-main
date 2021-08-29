@@ -19,6 +19,7 @@ body {
   height: 100vh;
   background-color: var(--main-backgroundColor);
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -41,21 +42,34 @@ body {
     width: 80vw;
     height: 60vh;
     display: grid;
-    grid-template: 1fr 1fr 1fr/ 1fr 1fr;
+    grid-template: 1fr 1fr/ 1fr 1fr;
     grid-template-areas: "content image"
-                         "numbers image" 
-                         "attribution image"
-    ;
+                         "numbers image";
+  }
+}
+@media (max-width: 1200px) {
+  .wrapper {
+    max-width: 490px;
   }
 }
 /* image section */
 .image {
+  position: relative;
   grid-area: image;
   height: 100%;
 }
 .image img{
   width: 100%;
   height: 100%;
+}
+.transpBackground {
+  background-color:hsl(277, 64%, 61%, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 /* content section */
 .content {
@@ -66,9 +80,13 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
   grid-area: content;
   grid-gap: 10px;
+}
+@media (min-width: 1200px) {
+  .content {
+    margin-top: 30px;
+  }
 }
 .header {
   font-family: 'Lexend Deca', sans-serif;
@@ -79,17 +97,31 @@ body {
 }
 .header_content {
   color: var(--stat-headings);
+  margin-top: 20px;
 }
 /* statistic section */
 .numbers {  
-  font-size: 1em;
+  font-size: 1.2em;
   text-align: center;
   font-family: 'Lexend Deca';
   margin-bottom: 10px;
   grid-area: numbers;
 }
+.numbers div {
+  margin: 20px;
+}
 .numbers span {
+  font-size: 0.7em;
+  text-transform: uppercase;
   color: var(--stat-headings);
+}
+@media(min-width: 1200px) {
+  .numbers {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 /* attribution section */
 .attribution {
