@@ -1,4 +1,4 @@
-/* color variables */
+/* Color Variables */
 :root {
 --main-backgroundColor: hsl(233, 47%, 7%);
 --card-backgroundColor: hsl(244, 38%, 16%);
@@ -8,22 +8,27 @@
 --main-paragraph: hsla(0, 0%, 100%, 0.75);
 --stat-headings: hsla(0, 0%, 100%, 0.6);
 }
-/* global styles */
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Inter;
 }
+/* Body */
 body {
-  height: 100vh;
   background-color: var(--main-backgroundColor);
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-/* wrapper (card) */
+  /* Body media query max-width: 400px */
+@media (min-width: 1200px) {
+  body {
+    height: 100vh;
+  }
+}
+/* Wrapper (card) */
 .wrapper {
   background-color: var(--card-backgroundColor);
   color: var(--white);
@@ -36,7 +41,7 @@ body {
   overflow: hidden;
   margin: 20px;
 }
-/* media queries minimum 1200px  */
+  /* Wrapper media queries minimum 1200px  */
 @media (min-width: 1200px) {
   .wrapper {
     width: 80vw;
@@ -47,12 +52,13 @@ body {
                          "numbers image";
   }
 }
+/* Wrapper media max-width 1200px  */
 @media (max-width: 1200px) {
   .wrapper {
     max-width: 490px;
   }
 }
-/* image section */
+/* Image section */
 .image {
   position: relative;
   grid-area: image;
@@ -71,7 +77,7 @@ body {
   left: 0;
   z-index: 2;
 }
-/* content section */
+/* Content section */
 .content {
   text-align: center;
   margin: 0 25px 0 25px;
@@ -83,11 +89,13 @@ body {
   grid-area: content;
   grid-gap: 10px;
 }
+  /* Content media query min-width: 1200px */
 @media (min-width: 1200px) {
   .content {
     margin-top: 30px;
   }
 }
+/* Header section */
 .header {
   font-family: 'Lexend Deca', sans-serif;
   font-size: 1.7em;
@@ -99,7 +107,7 @@ body {
   color: var(--stat-headings);
   margin-top: 20px;
 }
-/* statistic section */
+/* Statistic section */
 .numbers {  
   font-size: 1.2em;
   text-align: center;
@@ -115,6 +123,7 @@ body {
   text-transform: uppercase;
   color: var(--stat-headings);
 }
+  /* Statistic media query min-width: 1200px */
 @media(min-width: 1200px) {
   .numbers {
     margin: 10px;
@@ -122,9 +131,4 @@ body {
     justify-content: center;
     align-items: center;
   }
-}
-/* attribution section */
-.attribution {
-  margin-bottom: 5px;
-  grid-area: attribution;
 }
